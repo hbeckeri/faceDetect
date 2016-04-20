@@ -30,6 +30,10 @@ a:hover {
 h1 {
 	font-weight: bold;
 	font-size: 2em;
+	text-align: center;
+}
+p {
+	text-align: center;
 }
 
 .leftHalf {
