@@ -8,12 +8,15 @@
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   </head>
 
-      <form name="new_upload" action="/upload" method="post" enctype="multipart/form-data">
+  <body>
+      <form action="/upload" id="myForm" name="new_upload" method="post" enctype="multipart/form-data">
         <input type="file" accept='image/*' id="files" name="image">
+        <input type="submit" value="Submit">
       </form>
-      <button id="btnSubmit" value="Submit">Submit</button>
       <img id="image"/>
   </body>
 
   <script src="js/FileUpload.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+
 </html>
