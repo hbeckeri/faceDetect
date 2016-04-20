@@ -12,7 +12,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/upload', function(req, res) {
-    res.send({success: "good job"});
+    res.send({success: "hi traver"});
 });
 
 app.post('/upload', function(req, res){
