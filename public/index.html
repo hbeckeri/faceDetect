@@ -1,31 +1,19 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
-
-  <head>
+ <head>
     <title>NodeJS Starter Application</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   </head>
 
-  <body>
-    <table>
-      <tr>
-        <!--<td style= "width:30%;">
-          <img class = "newappIcon" src="images/newapp-icon.png">-->
-        <td>
-            <h1>Welcome to FaceDetect!</h1>
-          <p>Upload a photo of a person to determine their age and gender
-      <tr2>
-        <input type="file" accept='image/*' id="files" />
-        <script src="js/FileUpload.js"></script>
-        <img id="image" src="images/newapp-icon.png"/>
-        <button onclick="myFunction()">
-          Submit
-        </button>
-      </tr2>
-    </table>
+      <form name="new_upload" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" accept='image/*' id="files" name="image">
+      </form>
+      <button id="btnSubmit" value="Submit">Submit</button>
+      <img id="image"/>
   </body>
 
+  <script src="js/FileUpload.js"></script>
 </html>
