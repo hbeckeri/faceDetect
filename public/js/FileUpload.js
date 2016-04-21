@@ -34,5 +34,9 @@ $(function () {
         //Very important line, it disable the page refresh.
         return false;
     });
+
+    $('.upload').click(function(){
+       $('#files').click();
+    });
 });
 

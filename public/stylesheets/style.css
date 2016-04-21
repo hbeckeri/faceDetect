@@ -55,9 +55,19 @@ body {
 	bottom: 0;
 	left: 0;
 	background-color: #73b4d4;
+	text-align: center;
+	line-height: 70px;
 }
 
-.submit {
+
+
+.upload-text {
+	font-size:14px;
+	font-weight:bold;
+	font-family:tahoma, arial, sans-serif;
+}
+
+#myForm {
 	display: none;
 }
 

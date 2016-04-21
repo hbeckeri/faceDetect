@@ -1,6 +1,6 @@
 <!DOCTYPE html>
  <head>
-    <title>NodeJS Starter Application</title>
+    <title>FaceDetect</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +19,11 @@
               <p id="jsonResp"></p>
           </div>
           <form action="/upload" id="myForm" name="new_upload" method="post" enctype="multipart/form-data">
-              <input class="upload" type="file" accept='image/*' id="files" name="image">
+              <input type="file" accept='image/*' id="files" name="image" title="Upload">
               <input class="submit" type="submit" value="Submit">
           </form>
+          <h1><a class="upload">Upload</a></h1>
+
       </section>
   </body>
 
