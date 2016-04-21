@@ -22,7 +22,13 @@ $(function () {
                 status('Error: ' + xhr.status);
             },
             success: function (response) {
-                console.log(response);
+                var array = response.success.imageFaces;
+                var string = "";
+                array.forEach(function(data){
+                    string+= "Age Range: " + data.age.ageRange + "\n";
+                    string+= "Gender: " + data.gender.gender+ "\n";
+                });
+                $('#jsonResp').text(string);
             }
         });
         //Very important line, it disable the page refresh.

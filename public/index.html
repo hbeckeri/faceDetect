@@ -8,9 +8,6 @@
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   </head>
 
-
-
-
   <body>
       <header class="banner">
         <h1 class="bannertext">FaceDetect</h1>
@@ -19,7 +16,7 @@
       <section class="section">
           <img id="image"/>
           <div class="card">
-
+              <p id="jsonResp"></p>
           </div>
           <form action="/upload" id="myForm" name="new_upload" method="post" enctype="multipart/form-data">
               <input class="upload" type="file" accept='image/*' id="files" name="image">
