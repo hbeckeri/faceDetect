@@ -2,6 +2,9 @@
  * Created by traverclifford on 4/20/16.*/
 
 $(function () {
+    var c = document.getElementById("image");
+    var ctx = c.getContext("2d");
+
     addText("Upload a photo to guess your age", "");
     $('#files').change(function(){
         var reader = new FileReader();
@@ -9,8 +12,16 @@ $(function () {
         reader.onload = function (e) {
             $('.card').empty();
             addText("Waiting", "");
-            $('#image').attr('src', e.target.result);
+            //$('#image').attr('src', e.target.result);
             $('#myForm').submit();
+
+            var img = new Image();
+            img.onload = function(){
+                c.width = img.width;
+                c.height = img.height;
+                ctx.drawImage(img,0,0);
+            };
+            img.src = event.target.result;
         };
 
         // read the image file as a data URL.
@@ -35,6 +46,9 @@ $(function () {
                 array.forEach(function(data){
                     addText('Age Range' ,data.age.ageRange);
                     addText('Gender', data.gender.gender);
+                    //Draw image on face
+                    ctx.rect(data.positionX,data.positionY,data.width,data.height);
+                    ctx.stroke();
                 });
             }
         });
