@@ -46,7 +46,7 @@ body {
 }
 .card h1, h2, h3, h4, h5, h6, p {
 	text-align: center;
-	padding-top: 1em;
+	padding-top: .3em;
 }
 .upload {
 	position: fixed;
@@ -80,9 +80,10 @@ body {
 	display: block;
 	margin-top: 60px;
 	background-color: #637277;
-	height: 200px;
+	max-height: 200px;
 	max-width: 95%;
-	width: 200px;
+	width: auto;
+	height: auto;
 }
 
 /* -------------------- Media Queries ----------------- */
