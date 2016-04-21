@@ -8,15 +8,26 @@
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   </head>
 
+
+
+
   <body>
-      <form action="/upload" id="myForm" name="new_upload" method="post" enctype="multipart/form-data">
-        <input type="file" accept='image/*' id="files" name="image">
-        <input type="submit" value="Submit">
-      </form>
-      <img id="image"/>
+      <header class="banner">
+        <h1 class="bannertext">FaceDetect</h1>
+      </header>
+
+      <section class="section">
+          <img id="image"/>
+          <div class="card">
+
+          </div>
+          <form action="/upload" id="myForm" name="new_upload" method="post" enctype="multipart/form-data">
+              <input class="upload" type="file" accept='image/*' id="files" name="image">
+              <input class="submit" type="submit" value="Submit">
+          </form>
+      </section>
   </body>
 
   <script src="js/FileUpload.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-
 </html>

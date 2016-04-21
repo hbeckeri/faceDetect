@@ -2,16 +2,13 @@
  * Created by traverclifford on 4/20/16.*/
 
 $(function () {
+
     $('#files').change(function(){
         var reader = new FileReader();
 
         reader.onload = function (e) {
             $('#image').attr('src', e.target.result);
-
-            //var data = "image=" + e.target.result;
-            //$.post('/upload', data, function(res){
-            //    console.log(res);
-            //})
+            $('#myForm').submit();
         };
 
         // read the image file as a data URL.
@@ -20,7 +17,6 @@ $(function () {
 
 
     $('#myForm').submit(function() {
-
         $(this).ajaxSubmit({
             error: function (xhr) {
                 status('Error: ' + xhr.status);
