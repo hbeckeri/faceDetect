@@ -11,18 +11,23 @@ $(function () {
 
         reader.onload = function (e) {
             $('.card').empty();
-            addText("Waiting", "");
-            //$('#image').attr('src', e.target.result);
+            addText("Scanning Image", "");
+            addSpinner();
             $('#myForm').submit();
 
             var img = new Image();
             img.onload = function(){
                 c.width = img.width;
                 c.height = img.height;
+                ctx.font="30px Open Sans Condensed";
+                ctx.fillStyle = 'red';
+                ctx.lineWidth = "3";
+                ctx.strokeStyle = "red";
                 ctx.drawImage(img,0,0);
             };
             img.src = event.target.result;
         };
+
 
         // read the image file as a data URL.
         reader.readAsDataURL(this.files[0]);
@@ -37,19 +42,27 @@ $(function () {
                 status('Error: ' + xhr.status);
             },
             success: function (response) {
+
                 $('.card').empty();
                 console.log(response);
-                var array = response.success.imageFaces;
-                if (array.length == 0) {
-                    addText('No faces found');
+                if(response.error) {
+                    addText('No faces were found');
+                } else {
+                    var array = response.success.imageFaces;
+                    if (array.length == 0) {
+                        addText('No faces found');
+                    }
+                    insertTable();
+                    var i = 1;
+                    array.forEach(function(data){
+                        insertRow(i, data.age.ageRange, data.gender.gender.toLowerCase());
+                        //Draw image on face
+                        ctx.rect(data.positionX,data.positionY,data.width,data.height);
+                        ctx.stroke();
+                        ctx.fillText(i.toString(), data.positionX - 10, data.positionY - 10);
+                        i++;
+                    });
                 }
-                array.forEach(function(data){
-                    addText('Age Range' ,data.age.ageRange);
-                    addText('Gender', data.gender.gender);
-                    //Draw image on face
-                    ctx.rect(data.positionX,data.positionY,data.width,data.height);
-                    ctx.stroke();
-                });
             }
         });
         //Very important line, it disable the page refresh.
@@ -72,3 +85,31 @@ function addText(title, string) {
     }
 }
 
+function addSpinner() {
+    $('.card').append('<div class="loader"></div>');
+}
+
+function insertTable() {
+    var card = $('.card');
+    card.append('' +
+        '<table class="table">' +
+        '<thead>' +
+        '<th>#</th>' +
+        '<th>Age</th>' +
+        '<th>Gender</th>' +
+        '</thead>' +
+        '<tbody></tbody>' +
+        '</table>'
+    );
+}
+
+function insertRow(num, age, gender) {
+    var table = $('.card table');
+    table.append('' +
+        '<tbody>' +
+        '<th scope="row">' + num + '</th>' +
+        '<td>' + age + '</td>' +
+        '<td>' + gender + '</td>' +
+        '</tbody>'
+    );
+}

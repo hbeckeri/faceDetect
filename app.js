@@ -16,7 +16,6 @@ var storage = multer.diskStorage({
 
 var upload = multer({storage: storage, dest: 'uploads/'});
 
-
 var alchemy_vision = watson.alchemy_vision({
     api_key: '7d6ba05c450e17f88ed8799ba614e9375424fd62'
 });
